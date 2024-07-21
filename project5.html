@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+MX:wght@100..400&display=swap" rel="stylesheet">
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <link rel="shortcut icon" href="https://img.icons8.com/external-icongeek26-outline-icongeek26/64/000000/external-owl-birds-icongeek26-outline-icongeek26.png">
+    
+        <title>Document</title>
+        <style type="text/tailwindcss">
+             .navitems>li>a{
+                @apply h-12 px-4 hover:bg-gray-700 rounded-lg flex items-center gap-2 
+            }
+        </style>
+    </head>
+
+<body>
+    <!-- Image Section -->
+<section class="relative h-screen bg-blue-600 overflow-hidden navitems rounded-b-2xl ">
+    <!-- Navigation bar on top of the image -->
+    <nav class="absolute top-0 left-0 right-0 z-10 bg-black bg-opacity-20 px-6  text-white py-4">
+        <div class="container mx-auto flex justify-between items-center">
+          
+           
+            <!-- Logo -->
+            <div class="">
+               
+            <a href="#" class="text-2xl font-semibold"> 
+                <h2 class="font-bold text-2xl"> 
+                    
+                    <span class="font-light text-sm block"> ECOLE DE LANGUE </span>SIBAWAIH</h2>
+            </a>
+            </div>
+     
+            <!-- Mobile menu toggle -->
+            <div class="block lg:hidden">
+                <button class="toggle text-white focus:outline-none">
+                    <svg class="toggle-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Desktop menu -->
+            <div class="hidden lg:block">
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="hover:underline">Accueil</a></li>
+                    <li><a href="#" class="hover:underline">Programmes</a></li>
+                    <li><a href="#" class="hover:underline">Blog</a></li>
+                    <li><a href="#" class="hover:underline">A propo de nous</a></li>
+                    <li><a href="#" class="hover:underline">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Mobile menu (hidden by default) -->
+    <div class="menu-list  absolute top-0 left-0 right-0 z-10 bg-black bg-opacity-40 text-white py-4 lg:hidden">
+        <ul class="px-4">
+            <li class="py-2"><a href="#" class="block hover:bg-gray-700 px-2 py-1 rounded">Accueil</a></li>
+            <li class="py-2"><a href="#" class="block hover:bg-gray-700 px-2 py-1 rounded">Programmes</a></li>
+            <li class="py-2"><a href="#" class="block hover:bg-gray-700 px-2 py-1 rounded">Blog</a></li>
+            <li class="py-2"><a href="#" class="block hover:bg-gray-700 px-2 py-1 rounded">A propo de nous</a></li>
+            <li class="py-2"><a href="#" class="block hover:bg-gray-700 px-2 py-1 rounded">Contact</a></li>
+        </ul>
+    </div>
+    <!-- Image and paragraph content -->
+    <div class="  flex-wrap items-center justify-center grid lg:grid-cols-2 md:grid-cols-2  gap-4  p-20">
+        <dive class=" grid-item  justify-center ">
+        <!-- Paragraph on the left -->
+        <div class=" grid-item text-white justify-center ">
+            <p class="text-2xl leading-relaxed"><span class="text-orange-700 font-bold">J'apprends</span> dés maintenant les </p>
+            <p class="text-2xl leading-relaxed mt-4 px-2 left-2">langues de l'avenir.</p>
+           
+        </div>
+          <div class="pt-7">
+        <button class="bg-transparent hover:bg-gradient-to-r from-cyan-500 to-orange-500 opacity-90 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded ">
+            Je m'inscrire dés maintenant
+          </button>
+        </div>
+    </dive>
+        <!-- Image on the right -->
+        <div class=" grid-item ">
+            <img src="p1.jpg" alt="Description de votre image" class="w-full h-auto bg-transparent rounded-lg">
+        </div>
+    </div>
+    <script>
+        // JavaScript to toggle mobile menu
+        document.querySelector('.toggle').addEventListener('click', function () {
+            document.querySelector('.menu-list').classList.toggle('open');
+        });
+    </script>
+   
+
+
+</section>
+    
+</body>
+</html>

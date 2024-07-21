@@ -12,16 +12,19 @@
 
     <title>Document</title>
     <style type="text/tailwindcss">
-        .navitems>li>a {
-            @apply h-12 px-4 hover:bg-gray-700 rounded-lg flex items-center gap-2 
+         .navitems>li>a {
+            @apply h-12 px-4  rounded-lg flex items-center gap-2 
         }
     </style>
 </head>
 <body>
-    <section class="relative h-screen overflow-hidden navitems rounded-b-2xl">
-        <header x-data="{ mobileiconOpen: false }" class="h-20 px-8 md:flex items-center justify-between text-white sticky top-0 z-50 bg-gray-900">
-            <nav class="flex-1">
-                <ul class="flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+    <section class="relative h-screen overflow-hidden  rounded-b-2xl bg-cover bg-center" style="background-image: url('fr.jpg');">
+        <header x-data="{ mobileiconOpen: false }" class="h-20 px-8 md:flex items-center justify-between text-white sticky top-0 z-50 bg-transparent">
+            
+            
+            
+            <nav class="flex-1 flex justify-between">
+                <ul class="flex flex-wrap text-sm font-medium text-center navitems  dark:text-gray-400">
                     <!-- Primary navigation items -->
                     <li class="me-2">
                         <a href="#" class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
@@ -37,12 +40,17 @@
                             </svg>Dashboard
                         </a>
                     </li>
-                    <li class="me-2">
-                        <a href="#" class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+                    <li   x-data="{ dropdownOpen: false }"  class="relative me-2">
+                        <a  @mouseover="dropdownOpen = true" @mouseleave="dropdownOpen = false"  href="#" class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
                             <svg class="w-4 h-4 me-2 text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M5 11.424V1a1 1 0 1 0-2 0v10.424a3.228 3.228 0 0 0 0 6.152V19a1 1 0 1 0 2 0v-1.424a3.228 3.228 0 0 0 0-6.152ZM19.25 14.5A3.243 3.243 0 0 0 17 11.424V1a1 1 0 0 0-2 0v10.424a3.227 3.227 0 0 0 0 6.152V19a1 1 0 1 0 2 0v-1.424a3.243 3.243 0 0 0 2.25-3.076Zm-6-9A3.243 3.243 0 0 0 11 2.424V1a1 1 0 0 0-2 0v1.424a3.228 3.228 0 0 0 0 6.152V19a1 1 0 1 0 2 0V8.576A3.243 3.243 0 0 0 13.25 5.5Z"/>
                             </svg>Settings
                         </a>
+                        <div x-show="dropdownOpen" @mouseover="dropdownOpen = true" @mouseleave="dropdownOpen = false" class="absolute left-0 w-40 mt-2 origin-top-left bg-white border border-gray-200 rounded-md shadow-lg z-10">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile Settings</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Account Settings</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Privacy Settings</a>
+                        </div>
                     </li>
                     <li class="me-2">
                         <a href="#" class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
@@ -55,24 +63,23 @@
                         <a class="inline-block p-4 text-gray-400 rounded-t-lg cursor-not-allowed dark:text-gray-500">Disabled</a>
                     </li>
                 </ul>
+                <!-- Right aligned navigation items -->
+                <ul class="flex space-x-4 navitems">
+                    <li x-data="{ arrowMove: false }" class="relative" >
+                        <a   @mouseover="arrowMove = true" @mouseleave="arrowMove = false" href="#" class="inline-flex items-center justify-left p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+                            Get started
+                            <svg :class="{'translate-x-2': arrowMove}"  class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="inline-flex items-center justify-left p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+                            Learn more
+                        </a>
+                    </li>
+                </ul>
             </nav>
-            <!-- Right aligned navigation items -->
-            <div class="flex space-x-4">
-                <li>
-                    <a href="#" class="inline-flex items-center justify-left p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
-                        Get started
-                        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="inline-flex items-center justify-left p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
-                        Learn more
-                    </a>
-                </li>
-            </div>
-            
         </header>
     </section>
 </body>

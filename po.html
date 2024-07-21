@@ -13,15 +13,31 @@
     <title>Document</title>
     <style type="text/tailwindcss">
         .navitems>li>a {
-            @apply h-12 px-4 hover:bg-gray-700 rounded-lg flex items-center gap-2 
+            @apply h-12 px-4  rounded-lg flex items-center gap-2 
         }
     </style>
 </head>
 <body>
-    <section class="relative h-screen overflow-hidden navitems rounded-b-2xl">
-        <header x-data="{ mobileiconOpen: false }" class="h-20 px-8 md:flex items-center justify-between text-white sticky top-0 z-50 bg-gray-900">
-            <nav class="flex-1">
-                <ul class="flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+    <section class="relative h-screen overflow-hidden navitems rounded-b-2xl bg-cover bg-center" style="background-image: url('fr.jpg');">
+        <header x-data="{ mobileiconOpen: false }" class="h-20 px-8 md:flex items-center justify-between text-white sticky top-0 z-50 bg-transparent">
+              
+            <div class="flex items-center justify-between h-20">
+               
+                <mobileicon class="md:hidden">
+                    <a @click="mobileiconOpem= !mobileiconOpem" class="h-12 w-12 flex items-center justify-center cursor-pointer hover:bg-gray-700 rounded-lg">
+                        <img x-show="!mobileiconOpem" class="w-35 h-35 select-none"  src="https://img.icons8.com/doodle/48/menu.png" alt="menu"/>
+                        <img x-show="mobileiconOpem" x-cloak class="h-27 w-27 select-none" src="https://img.icons8.com/stencil/32/delete-sign.png" alt="delete-sign"/>
+                    </a>
+                </mobileicon>
+            </div>
+            
+
+
+
+
+
+            <nav  x-show="mobileiconOpem" class="flex-1 md:!block" >
+                <ul class="flex items-center navitems flex-col md:flex-row  text-sm font-medium text-center  ">
                     <!-- Primary navigation items -->
                     <li class="me-2">
                         <a href="#" class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
@@ -57,7 +73,7 @@
                 </ul>
             </nav>
             <!-- Right aligned navigation items -->
-            <div class="flex space-x-4">
+            <ul    class="flex space-x-4 navitems"    >
                 <li>
                     <a href="#" class="inline-flex items-center justify-left p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
                         Get started
@@ -71,8 +87,7 @@
                         Learn more
                     </a>
                 </li>
-            </div>
-            
+            </ul>
         </header>
     </section>
 </body>
